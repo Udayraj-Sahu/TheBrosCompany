@@ -9,7 +9,7 @@ function ServicesPage() {
 	const [cars, setCars] = useState(carData);
 	const [searchTerm, setSearchTerm] = useState("");
 	const [filters, setFilters] = useState({
-		available: false,
+		available: true, // Changed from false to true
 		fuelType: [],
 		// Price range can be added here, e.g., price: [0, 10000]
 	});
@@ -104,6 +104,7 @@ function ServicesPage() {
 									type="checkbox"
 									name="available"
 									onChange={handleFilterChange}
+									checked={filters.available} // Keep this, as it will now be true by default
 									className="h-5 w-5 rounded"
 								/>
 								Available Now

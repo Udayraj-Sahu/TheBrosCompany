@@ -3,10 +3,10 @@ import CarCard from "./CarCard";
 import { motion, useInView } from "framer-motion";
 import { carData } from "../data/carData";
 import { ArrowRight } from "lucide-react";
-import TiltedCarCard from "./TiltedCarCard";
+// import TiltedCarCard from "./TiltedCarCard"; // Removed
 
 function FeaturedCars() {
-  const featuredCars = carData.filter((car) => car.featured);
+  const featuredCars = carData.filter((car) => car.featured && car.available);
   const sectionRef = useRef(null);
   const buttonRef = useRef(null);
   
@@ -85,7 +85,7 @@ function FeaturedCars() {
         {/* Enhanced grid with tilted cards */}
         <div className="px-4 sm:px-10 md:px-20 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {carsToShow.map((car, index) => (
-            <TiltedCarCard key={car.id || index} car={car} index={index} />
+            <CarCard key={car.id || index} car={car} onBookNow={() => {}} />
           ))}
         </div>
 
