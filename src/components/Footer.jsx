@@ -58,9 +58,9 @@ function Footer() {
 						<p className="mt-4 text-zinc-400">
 							or email us at{" "}
 							<a
-								href="mailto:hello@nomad.co"
+								href="mailto:thebroscompany@gmail.com"
 								className="text-white hover:text-amber">
-								hello@nomad.co
+								thebroscompany@gmail.com
 							</a>
 						</p>
 					</motion.div>
@@ -84,20 +84,11 @@ function Footer() {
 
 					<div className="flex gap-4 sm:gap-10 text-zinc-400">
 						<a
-							href="#"
+							href="https://www.instagram.com/the_bros_car_company/"
 							className="hover:text-white transition-colors">
 							Instagram
 						</a>
-						<a
-							href="#"
-							className="hover:text-white transition-colors">
-							X / Twitter
-						</a>
-						<a
-							href="#"
-							className="hover:text-white transition-colors">
-							LinkedIn
-						</a>
+					
 					</div>
 				</motion.div>
 			</div>

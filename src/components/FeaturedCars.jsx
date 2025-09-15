@@ -3,10 +3,13 @@ import CarCard from "./CarCard";
 import { motion, useInView } from "framer-motion";
 import { carData } from "../data/carData";
 import { ArrowRight } from "lucide-react";
+import BookingFormModal from "./BookingFormModal"; // Import BookingFormModal
 // import TiltedCarCard from "./TiltedCarCard"; // Removed
 
 function FeaturedCars() {
   const featuredCars = carData.filter((car) => car.featured && car.available);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCarName, setSelectedCarName] = useState(""); // Add selectedCarName state
   const sectionRef = useRef(null);
   const buttonRef = useRef(null);
   
@@ -19,6 +22,15 @@ function FeaturedCars() {
     once: true, 
     margin: "-100px 0px -100px 0px" 
   });
+  const handleBookNowClick = (carName) => {
+		setSelectedCarName(carName);
+		setIsModalOpen(true);
+	};
+
+  const handleCloseModal = () => { // Add handleCloseModal function
+    setIsModalOpen(false);
+    setSelectedCarName("");
+  };
 
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -85,7 +97,7 @@ function FeaturedCars() {
         {/* Enhanced grid with tilted cards */}
         <div className="px-4 sm:px-10 md:px-20 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           {carsToShow.map((car, index) => (
-            <CarCard key={car.id || index} car={car} onBookNow={() => {}} />
+            <CarCard key={car.id || index} car={car} onBookNow={handleBookNowClick} />
           ))}
         </div>
 
@@ -113,6 +125,11 @@ function FeaturedCars() {
           </a>
         </motion.div>
       </div>
+      <BookingFormModal // Add BookingFormModal component
+        carName={selectedCarName}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 }
