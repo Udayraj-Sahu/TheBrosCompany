@@ -54,7 +54,7 @@ function BookingFormModal({ carName, isOpen, onClose }) {
 						animate={{ y: "0", opacity: 1 }}
 						exit={{ y: "100vh", opacity: 0 }}
 						transition={{ type: "spring", stiffness: 100, damping: 20 }}
-						className="bg-white rounded-lg p-8 w-full max-w-md relative shadow-lg"
+						className="bg-white rounded-lg p-8 w-full max-w-md relative shadow-lg max-h-[90vh] overflow-y-auto"
 					>
 						<button
 							onClick={onClose}

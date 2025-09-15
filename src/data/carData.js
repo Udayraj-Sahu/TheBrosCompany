@@ -6,6 +6,8 @@ export const carData = [
     price: 5000,
     fuelType: "Diesel",
     available: true,
+
+    
     transmission: "Manual",
     seats: 4,
     discount: "20% off",
