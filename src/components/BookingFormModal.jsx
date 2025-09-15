@@ -21,7 +21,7 @@ function BookingFormModal({ carName, isOpen, onClose }) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		const whatsappNumber = "917440594711"; // Your WhatsApp number
+		const whatsappNumber = "917389168892"; // Your WhatsApp number
 
 		const message = `*New Car Booking Request*\n\n` +
 			`*Car Name:* ${carName}\n` +
