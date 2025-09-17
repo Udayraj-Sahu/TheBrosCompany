@@ -31,7 +31,7 @@ function App() {
 	}
 
 	return (
-		<div className="bg-zinc-800 text-white overflow-visible">
+		<div className="bg-zinc-800 text-white overflow-x-hidden">
 			<Navbar />
 			<ScrollToTop />
 			<main>

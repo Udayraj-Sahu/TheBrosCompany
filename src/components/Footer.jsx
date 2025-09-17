@@ -31,8 +31,8 @@ function Footer() {
 						initial="hidden"
 						whileInView="visible"
 						viewport={{ once: true, amount: 0.5 }}
-						// THE FIX: Added 'whitespace-nowrap' to prevent the headline from wrapping
-						className="text-6xl md:text-8xl lg:text-9xl font-semibold leading-none tracking-tighter whitespace-nowrap"
+						// THE FIX: Removed 'whitespace-nowrap' to allow the headline to wrap on smaller screens
+						className="text-5xl md:text-7xl lg:text-8xl font-semibold leading-none tracking-tighter"
 						aria-label={headlineText}>
 						{headlineText.split("").map((char, index) => (
 							<motion.span

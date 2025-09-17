@@ -23,7 +23,7 @@ function AboutUs() {
 	};
 
 	return (
-		<div className="relative w-full bg-oxford_blue text-platinum font-sans overflow-hidden py-16 md:py-40">
+		<div className="relative w-full bg-oxford_blue text-platinum font-sans overflow-hidden md:py-40 pt-32 pb-20 md:pt-0">
 			{/* --- 1. Cinematic Car Video Background --- */}
 			<video
 				autoPlay

@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom"; // For routing
-import { Search, Bell, Download, LogIn, Menu, X } from "lucide-react"; // Icons
-import { AnimatePresence } from "framer-motion";
-// import StaggeredMenu from "./StaggeredMenu";
+import { motion, AnimatePresence } from "framer-motion";
+import { NavLink } from "react-router-dom";
+import { Menu, X } from "lucide-react";
 
 function Navbar() {
-	// A more robust links array for routing and special elements
 	const links = [
 		{ label: "Home", ariaLabel: "Go to home page", link: "/" },
 		{ label: "About", ariaLabel: "Learn about us", link: "/about" },
@@ -15,13 +12,6 @@ function Navbar() {
 		{ label: "Contact", ariaLabel: "Get in touch", link: "/contact" },
 	];
 
-	// Class function for active NavLink styling
-	const navLinkClass = ({ isActive }) =>
-		`font-regular text-sm flex items-center gap-2 cursor-pointer ${
-			isActive ? "text-white" : "text-zinc-400 hover:text-white"
-		}`;
-
-	// useEffect to apply SheryJS magnet effect after component mounts
 	useEffect(() => {
 		if (window.Shery) {
 			Shery.makeMagnet(".magnet-target");
@@ -31,13 +21,10 @@ function Navbar() {
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 	const toggleMobileMenu = () => {
-		setIsMobileMenuOpen(!isMobileMenuOpen);
+		setIsMobileMenuOpen((prev) => !prev);
 	};
 
-    const navbarHeight = "64px"; // Approximate height of the main navbar
-
 	return (
-		// Initial slide-in animation for the whole navbar
 		<>
 			<motion.div
 				initial={{ y: -100, opacity: 0 }}
@@ -46,16 +33,12 @@ function Navbar() {
 				className="fixed top-0 z-[999] w-full"
 			>
 				<div className="max-w-screen-xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between bg-oxford_blue/90 backdrop-blur-md border-b border-yinmn_blue h-[64px]">
-					{/* Left side: Logo */}
-					<div className="flex items-center">
-						<NavLink to="/" className="magnet-target flex-shrink-0">
-							<div className="text-xl md:text-2xl font-extrabold tracking-wider bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text drop-shadow-lg font-playfair">
-								THE BRO'S CAR COMPANY
-							</div>
-						</NavLink>
-					</div>
+					<NavLink to="/" className="magnet-target flex-shrink-0">
+						<div className="text-xl md:text-2xl font-extrabold tracking-wider bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text drop-shadow-lg font-playfair">
+							THE BRO'S CAR COMPANY
+						</div>
+					</NavLink>
 
-					{/* Center: Navigation Links (Desktop) */}
 					<div className="hidden md:flex items-center gap-10">
 						{links.map((link) => (
 							<motion.div
@@ -65,7 +48,6 @@ function Navbar() {
 								className="magnet-target"
 							>
 								<NavLink
-									key={link.label}
 									to={link.link}
 									className={({ isActive }) =>
 										`text-sm font-medium ${
@@ -81,26 +63,25 @@ function Navbar() {
 						))}
 					</div>
 
-					{/* Mobile Menu Toggle Button (Hamburger/X) */}
 					<div className="md:hidden flex items-center">
 						<button
 							onClick={toggleMobileMenu}
-							className="text-platinum focus:outline-none">
+							className="text-platinum focus:outline-none"
+						>
 							{isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
 						</button>
 					</div>
 				</div>
 			</motion.div>
 
-			{/* Mobile Menu Overlay */}
 			<AnimatePresence>
 				{isMobileMenuOpen && (
 					<motion.div
 						initial={{ y: "-100%" }}
 						animate={{ y: 0 }}
 						exit={{ y: "-100%" }}
-						transition={{ type: "tween", stiffness: 100, damping: 20 }}
-						className="fixed inset-0 bg-oxford_blue z-[9999] md:hidden flex flex-col items-center justify-start space-y-6 px-4 py-20 overflow-y-auto"
+						transition={{ duration: 0.4, ease: "easeInOut" }}
+						className="fixed inset-0 bg-oxford_blue/90 backdrop-blur-md z-[9999] md:hidden flex flex-col items-center justify-start space-y-6 px-4 py-20 overflow-y-auto"
 					>
 						{links.map((link, index) => (
 							<NavLink
