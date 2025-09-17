@@ -49,7 +49,7 @@ function Navbar() {
 					{/* Left side: Logo */}
 					<div className="flex items-center">
 						<NavLink to="/" className="magnet-target flex-shrink-0">
-							<div className="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text drop-shadow-lg font-playfair">
+							<div className="text-xl md:text-2xl font-extrabold tracking-wider bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text drop-shadow-lg font-playfair">
 								THE BRO'S CAR COMPANY
 							</div>
 						</NavLink>
@@ -85,8 +85,7 @@ function Navbar() {
 					<div className="md:hidden flex items-center">
 						<button
 							onClick={toggleMobileMenu}
-							className="text-platinum focus:outline-none magnet-target"
-						>
+							className="text-platinum focus:outline-none">
 							{isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
 						</button>
 					</div>
