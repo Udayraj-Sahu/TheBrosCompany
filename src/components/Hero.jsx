@@ -15,12 +15,12 @@ function Hero() {
 	const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
 
 	// Marquee-style horizontal movement for text
-	const textX = useTransform(scrollYProgress, [0, 1], ["100%", "-100%"]);
-	const textY = useTransform(scrollYProgress, [0, 1], ["25%", "-50%"]);
+	const textX = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], ["100%", "0%", "0%", "-100%"]); // Adjusted values for right-to-center and then off-left
+	const textY = useTransform(scrollYProgress, [0, 1], ["0%", "0%"]); // Changed from ["25%", "-50%"]
 	const textOpacity = useTransform(
 		scrollYProgress,
-		[0, 0.3, 0.7, 1],
-		[1, 1, 0.5, 0]
+		[0, 0.1, 0.9, 1],
+		[1, 1, 1, 0] // Adjusted values to keep it opaque longer and then fade out
 	);
 
 	return (

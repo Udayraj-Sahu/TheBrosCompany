@@ -49,11 +49,9 @@ function Navbar() {
 					{/* Left side: Logo */}
 					<div className="flex items-center">
 						<NavLink to="/" className="magnet-target flex-shrink-0">
-							<img
-								src="https://assets-global.website-files.com/62df9251ae9124d9d726bcb9/62dfc1419247bccdd5a2dd1b_Tools.svg"
-								alt="The Bros Car Company Logo"
-								className="h-8 w-auto"
-							/>
+							<div className="text-2xl font-extrabold tracking-wider bg-gradient-to-r from-blue-400 to-emerald-400 text-transparent bg-clip-text drop-shadow-lg font-playfair">
+								THE BRO'S CAR COMPANY
+							</div>
 						</NavLink>
 					</div>
 
